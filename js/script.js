@@ -89,7 +89,7 @@ printQuote();
  * printQuote refreshes with setInterval().
 ***/
 
-setInterval(function(){ printQuote(); }, 6000);
+setInterval(function(){ randomBack();  printQuote(); }, 6000);
 
 /***
  * randomBack function changes background color to random RGB.
