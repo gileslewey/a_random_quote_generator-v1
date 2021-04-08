@@ -52,8 +52,8 @@ const douglasAdamsQuote = {
   tag: "Humor"
   };
 
-let quotesArray = [jayQuote, theDudeQuote, blackKnightQuote, dwightShrootQuote, douglasAdamsQuote];
-
+let quotes = [jayQuote, theDudeQuote, blackKnightQuote, dwightShrootQuote, douglasAdamsQuote];
+let humorQuote = {};
 
 /***
  * get humorQuote with random quote function.
@@ -61,13 +61,18 @@ let quotesArray = [jayQuote, theDudeQuote, blackKnightQuote, dwightShrootQuote, 
  * buildQuote function sets quote on page.
 ***/
 
+function getRandomQuote() {
+  humorQuote = (quotes[Math.floor(Math.random() * quotes.length)]); 
+  return humorQuote;
+}
+
 
 function printQuote() {
-let humorQuote = (quotesArray[Math.floor(Math.random() * quotesArray.length)]);
+getRandomQuote();
 let buildQuote = `<p class="quote">${humorQuote.quote}</p>
 <p class="source">${humorQuote.source}`;
  if (humorQuote.citation) {
-  buildQuote += `<span class="citation">${humorQuote.citation}</span>`;
+  buildQuote += `<span class=s"citation">${humorQuote.citation}</span>`;
   } if (humorQuote.year) {
   buildQuote += `<span class="year">${humorQuote.year}</span>`;
   } if (humorQuote.tag) {
