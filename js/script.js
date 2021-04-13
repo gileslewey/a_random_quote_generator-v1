@@ -14,46 +14,46 @@ project 1 - A Random Quote Generator
  * `quotes` array 
  *  Naming synyax is full source name plus 'Quote'.
 ***/
-
-const jayQuote = {
+let quotes = [
+jayQuote = {
   quote: "The minute they got rid of rotary phones, everything went to hell.",
   source: "Jay",
   citation: "Modern Family",
   year: "2010",
   tag: "Humor"
-  };
+  },
   
-const theDudeQuote = {
+theDudeQuote = {
   quote: "It really tied the room together.",
   source: "The Dude",
   citation: "The Big Lebowski",
   tag: "Humor"
-  };
+  },
 
-const blackKnightQuote = {
+blackKnightQuote = {
   quote: "It\'s just a flesh wound.",
   source: "Black Knight",
   citation: "Monty Python and the Holy Grail",
   year: "1975",
   tag: "Humor"
-  };
+  },
 
-const dwightShrootQuote = {
+dwightShrootQuote = {
   quote: "Today, smoking is going to save lives.",
   source: "Dwight Shroot",
   citation: "The Office",
   tag: "Humor"
-  };
+  },
 
-const douglasAdamsQuote = {
+douglasAdamsQuote = {
   quote: "Isn\'t it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?",
   source: "Douglas Adams",
   citation: "Hitchiker\'s guide to the Galaxy",
   tag: "Humor"
-  };
-
-let quotes = [jayQuote, theDudeQuote, blackKnightQuote, dwightShrootQuote, douglasAdamsQuote];
-let humorQuote = {};
+  },
+];
+//let quotes = [jayQuote, theDudeQuote, blackKnightQuote, dwightShrootQuote, douglasAdamsQuote];
+//let humorQuote = {};
 
 /***
  * get humorQuote with random quote function.
@@ -61,14 +61,19 @@ let humorQuote = {};
  * buildQuote function sets quote on page.
 ***/
 
-function getRandomQuote() {
-  humorQuote = (quotes[Math.floor(Math.random() * quotes.length)]); 
-  return humorQuote;
-}
 
+//make arrow function
+function getRandomQuote() {
+return (quotes[Math.floor(Math.random() * quotes.length)]); 
+} 
+/*set to return random quote object instead of variable
+To add to what I was saying previously, rather than using a global variable for the random quote object, you could just call 
+getRandom quote and assign it to a variable directly in the printQuote function with something like const newQuote = 
+getRandomQuote. So the getRandomQuote function would return a random quote and the printQuote function would call
+ that function and assign it to a variable.*/
 
 function printQuote() {
-getRandomQuote();
+const humorQuote = getRandomQuote();
 let buildQuote = `<p class="quote">${humorQuote.quote}</p>
 <p class="source">${humorQuote.source}`;
  if (humorQuote.citation) {
@@ -96,10 +101,10 @@ setInterval(function(){ randomBack();  printQuote(); }, 6000);
 ***/
 
 function randomBack() {
-  let R = Math.floor(Math.random() * 256);
-  let G = Math.floor(Math.random() * 256);
-  let B = Math.floor(Math.random() * 256);
-  let backColor =  `rgb( ${R}, ${G}, ${B} )`;
+  const R = Math.floor(Math.random() * 256);
+  const G = Math.floor(Math.random() * 256);
+  const B = Math.floor(Math.random() * 256);
+  const backColor =  `rgb( ${R}, ${G}, ${B} )`;
   document.body.style.background = backColor;
   }
   
